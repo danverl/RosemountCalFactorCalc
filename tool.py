@@ -11,8 +11,18 @@ def calculate16digitCalFactor(oldCalFactor, correctionFactor):
   spacer = parts[1]
   zeroOffset = parts[2]
   gain5hz = round(int(parts[3]) * correctionFactor)
+  padding1 = ""
+  padding2 = ""
+  if gain37hz < 10000: 
+    padding1 = "0"
+  else:
+    padding1 = ""
+  if gain5hz < 10000: 
+    padding2 = "0"
+  else:
+    padding2 = ""
   
-  return f"0{gain37hz}{spacer}{zeroOffset}0{gain5hz}000"
+  return f"{padding1}{gain37hz}{spacer}{zeroOffset}{padding2}{gain5hz}000"
   
 class TestCalculation(unittest.TestCase):
   def test_calfactor_known_values(self):
