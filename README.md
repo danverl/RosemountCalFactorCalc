@@ -17,4 +17,7 @@ B = Gain at 5 hz
 K = trailing zeroes
 
 Example: 0958255009448000
+
+Formatted to 09582 5 50 09448 000
+
 This gives a gain at 37.5 hz of 95.82%, a zero offset of 5.0% and a gain at 5hz of 94.48%
