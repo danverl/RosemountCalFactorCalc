@@ -1,5 +1,7 @@
+# Rosemount 8700 series CAL factor calculator
 Tool to calculate new 16 digit cal code for rosemount electromagnetic flow meters based on a reference total.
 
+## Cal factor breakdown
 The rosemount cal factor code has the following format:\
 XXXXX Y ZZ BBBBB KKK\
 X = Gain at 37.5 HZ\
@@ -8,8 +10,14 @@ Z = Zero offset\
 B = Gain at 5 hz\
 K = trailing zeroes
 
-Example: 0958255009448000\
+## Example
+0958255009448000\
 Formatted to 09582 5 50 09448 000\
 This gives a gain at 37.5 hz of 95.82%, a zero offset of 5.0% and a gain at 5hz of 94.48%
 
-*Warning. i make no claims to the accuracy of the tool. it is just a reference. use the output on your own risk, and double check the calculation and the result*
+## Correction
+Correction is calculated by taking the reference total and dividing it by the meter total.\
+Example: Reference total 6000 liters, Meter total 7000 liters gives a correction factor of 0.8571428571428571\
+
+## Warning
+*I make no claims to the accuracy of the tool. it is just a reference. use the output on your own risk, and double check the calculation and the result*
