@@ -1,5 +1,5 @@
 def calculateCorrection(referenceTotal, meterTotal):
-  return referenceTotal / meterTotal
+  return metertotal / referenceTotal
 def calculate16digitCalFactor(oldCalFactor : str, correctionFactor :int):
   #format xxxxx x xx xxxxx xxx
   newOutput = ""
@@ -18,8 +18,10 @@ def test():
   #old 09582 5 50 09448 000
   #ref total 5982.562
   #dut total 6015.34
-  #correction 0.994550931
-  #new 09529 550 09397 000
+  #correction 0.994550931 xxx
+  #correction 1.005478924
+  #new 09529 550 09397 000 xxx
+  #new 09634 550 09500 000
   oldCalFactor = 0958255009448000
   referenceTotal = 5982.562
   dutTotal = 6015.34
