@@ -13,7 +13,8 @@ K = trailing zeroes
 ## Example
 0958255009448000\
 Formatted to 09582 5 50 09448 000\
-This gives a gain at 37.5 hz of 95.82%, a zero offset of 5.0% and a gain at 5hz of 94.48%
+This gives a gain at 37.5 hz of 95.82%, a zero offset of 5.0% and a gain at 5hz of 94.48%\
+This tool only calculates gain, not zero offset
 
 ## Correction
 Correction is calculated by taking the meter total and dividing it by the reference total\
