@@ -1,37 +1,34 @@
-def calculateCorrection(referenceTotal, meterTotal):
-  return metertotal / referenceTotal
-def calculate16digitCalFactor(oldCalFactor : str, correctionFactor :int):
-  #format xxxxx x xx xxxxx xxx
-  newOutput = ""
-  indices = [0,5,6,8,13]
-  parts = [oldCalFactor[i:j] for i,j in zip(indices, indices[1:]+[None])]
+import unittest
 
-  gain37hz = int(parts[0]) * correctionFactor
+def calculateCorrection(referenceTotal, meterTotal):
+  return float(meterTotal) / float(referenceTotal)
+
+def calculate16digitCalFactor(oldCalFactor, correctionFactor):
+  indices = [0,5,6,8,13]
+  parts = [str(oldCalFactor)[i:j] for i,j in zip(indices, indices[1:]+[None])]
+
+  gain37hz = round(int(parts[0]) * correctionFactor)
   spacer = parts[1]
   zeroOffset = parts[2]
-  gain5hz = int(parts[3]) * correctionFactor
-  trailingZeroes = parts[4]
-
-  newOutput = str(gain37hz) + str(spacer) + str(zeroOffset) + str(gain5hz) + str(trailingZeroes)
-
-def test():
-  #old 09582 5 50 09448 000
-  #ref total 5982.562
-  #dut total 6015.34
-  #correction 0.994550931 xxx
-  #correction 1.005478924
-  #new 09529 550 09397 000 xxx
-  #new 09634 550 09500 000
-  oldCalFactor = 0958255009448000
-  referenceTotal = 5982.562
-  dutTotal = 6015.34
-  correction = calculateCorrection(referenceTotal, dutTotal)
-  if int(calculate16digitCalFactor(oldCalFactor, correction)) = 0952955009397000:
-    print("Test passed")
-  else:
-    print("Test failed")
+  gain5hz = round(int(parts[3]) * correctionFactor)
   
+  return f"0{gain37hz}{spacer}{zeroOffset}0{gain5hz}000"
+  
+class TestCalculation(unittest.TestCase):
+  def test_calfactor_known_values(self):
+    self.assertEqual(calculate16digitCalFactor("0958255009448000", float(calculateCorrection(5982.562, 6015.34))),"0963455009500000")
+    
+  def test_correction_factor_calculation_1(self):
+    self.assertEqual(float(calculateCorrection(100, 100)), 1)
+    
+  def test_correction_factor_calculation_half(self):
+    self.assertEqual(float(calculateCorrection(100, 50)), 0.5)
+    
+  def test_correction_factor_calculation_half_pos(self):
+    self.assertEqual(float(calculateCorrection(50, 100)), 2)
+    
 if __name__ == "__main__":
+  #unittest.main()
   print("Tool to calcultate correction factor for Rosemount 8700 series flow meters")
   oldCalFactor = input("Input your old 16 digit cal factor")  # Python 3
   referenceTotal = input("Input your reference total")  # Python 3
