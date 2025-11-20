@@ -19,8 +19,9 @@ This tool only calculates gain, not zero offset
 ## Correction
 Correction is calculated by taking the meter total and dividing it by the reference total\
 Example: Reference total 6000 liters, Meter total 7000 liters gives a correction factor of 1.166666666
-This is the multiplied by the gains, and the gains are formated back into the style of the cal factor\
-Gain up = meter records lower flow, gain down meter records higher flow
+This is the multiplied by the gain, and the gain is formated back into the style of the cal factor\
+Gain up = meter records lower flow, gain down meter records higher flow\
+Currently it applies the same correction to both frequencies
 
 ## Warning
 *I make no claims to the accuracy of the tool. it is just a reference. use the output on your own risk, and double check the calculation and the result*
