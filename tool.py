@@ -16,15 +16,15 @@ def calculate16digitCalFactor(oldCalFactor : str, correctionFactor :int):
 
 def test():
   #old 09582 5 50 09448 000
-  #ref total 5976.5
-  #dut total 5983.064
-  #correction 0.9989029033
-  #new 09571 5 50 9437 000
+  #ref total 5982.562
+  #dut total 6015.34
+  #correction 0.994550931
+  #new 09529 550 09397 000
   oldCalFactor = 0958255009448000
-  referenceTotal = 5976.5
-  dutTotal = 5983.064
+  referenceTotal = 5982.562
+  dutTotal = 6015.34
   correction = calculateCorrection(referenceTotal, dutTotal)
-  if int(calculate16digitCalFactor(oldCalFactor, correction)) = 095715509437000:
+  if int(calculate16digitCalFactor(oldCalFactor, correction)) = 0952955009397000:
     print("Test passed")
   else:
     print("Test failed")
