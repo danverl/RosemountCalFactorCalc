@@ -18,6 +18,7 @@ This gives a gain at 37.5 hz of 95.82%, a zero offset of 5.0% and a gain at 5hz 
 ## Correction
 Correction is calculated by taking the reference total and dividing it by the meter total.\
 Example: Reference total 6000 liters, Meter total 7000 liters gives a correction factor of 0.8571428571428571\
+This is the multiplied by the gains, and the gains are formated back into the style of the cal factor 
 
 ## Warning
 *I make no claims to the accuracy of the tool. it is just a reference. use the output on your own risk, and double check the calculation and the result*
