@@ -6,7 +6,7 @@ X = Gain at 37.5 HZ\
 Y = Spacer\
 Z = Zero offset\
 B = Gain at 5 hz\
-K = trailing zeroes\
+K = trailing zeroes
 
 Example: 0958255009448000\
 Formatted to 09582 5 50 09448 000\
